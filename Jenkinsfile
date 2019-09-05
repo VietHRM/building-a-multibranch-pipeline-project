@@ -11,7 +11,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh """
+                ls -la
+                npm install
+                """
             }
         }
         stage('Test') {
@@ -20,5 +23,5 @@ pipeline {
             }
         }
     }
-    
+
 }
