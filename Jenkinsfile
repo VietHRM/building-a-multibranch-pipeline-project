@@ -17,11 +17,6 @@ pipeline {
                 """
             }
         }
-        stage('Test') {
-            steps {
-                sh './jenkins/scripts/test.sh'
-            }
-        }
 
         stage('Deliver for development') {
             when {
@@ -43,6 +38,14 @@ pipeline {
                 sh './jenkins/scripts/kill.sh'
             }
         }
+
+        stage('Test') {
+            steps {
+                sh './jenkins/scripts/test.sh'
+            }
+        }
+
+
     }
 
 }
