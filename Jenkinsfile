@@ -9,15 +9,6 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('Build') {
-            steps {
-                sh """
-                ls -la
-                npm install
-                """
-            }
-        }
-
         stage('Deliver for development') {
             when {
                 branch 'development'
@@ -44,6 +35,16 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+        stage('Build') {
+            steps {
+                sh """
+                ls -la
+                npm install
+                """
+            }
+        }
+
+
 
 
     }
